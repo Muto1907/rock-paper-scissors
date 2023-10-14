@@ -22,7 +22,7 @@ function getComputerChoice(){
 function playRound(playerSelection, computerSelection){
     let gameResult;
     formatPlayerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-
+    console.log(`You picked: ${formatPlayerSelection} | The computer picked ${computerSelection}`)
     if(formatPlayerSelection === computerSelection){
         gameResult = `It's a draw! You both picked ${formatPlayerSelection}`;
     }
