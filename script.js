@@ -48,6 +48,9 @@ function game (){
 
     for(let i = 0; i < 5; i++){
         playerSelection = prompt("Time to pick! Rock, Paper or Scissors?");
+        if(playerSelection.toLowerCase() !== "rock" && playerSelection.toLocaleLowerCase() !== "paper" && playerSelection.toLocaleLowerCase() !== "scissors"){
+            return "Error: Invalid option picked. You are disqualified!"
+        }
         computerSelection = getComputerChoice();
         gameResult = playRound(playerSelection, computerSelection);
         if(gameResult.includes("win")) playerPoints++;
