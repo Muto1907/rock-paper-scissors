@@ -1,9 +1,3 @@
-//getComputerChoice randomly return Rock Paper or Scissors
-//declare choice var
-//initialize Array with ro pa sci
-//random number between 0 and 2
-//asign array[num] to choice and return
-
 function getComputerChoice(){
     let choice;
     const options = ['Rock', 'Paper', 'Scissors'];
@@ -11,13 +5,6 @@ function getComputerChoice(){
     choice = options[randomNum];
     return choice;
 }
-
-
-
-//playRound(playerSelection, computerSelection) return a Winnerdeclaration String
-//      playerSelection case insensitive
-//capitalize playerSelection first letter: first char toUppercase and slice from pos 1 toUpperCase
-//game logic if both the same draw else look if player wins and return string
 
 function playRound(playerSelection, computerSelection){
     let gameResult;
@@ -36,8 +23,6 @@ function playRound(playerSelection, computerSelection){
     }
     return gameResult;
 }
-
-//game(play) 5 rounds console.log for each round winner get Input through prompt()
 
 function game (){
     let playerSelection
