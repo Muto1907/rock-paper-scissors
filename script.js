@@ -1,3 +1,14 @@
+const rockBtn = document.createElement("button");
+const paperBtn = document.createElement("button");
+const scissorBtn = document.createElement("button");
+const mainCard = document.querySelector("#main");
+rockBtn.innerText = "Rock"
+paperBtn.innerText = "Paper"
+scissorBtn.innerText = "Scissors"
+mainCard.appendChild(rockBtn);
+mainCard.appendChild(paperBtn);
+mainCard.appendChild(scissorBtn);
+
 function getComputerChoice(){
     let choice;
     const options = ['Rock', 'Paper', 'Scissors'];

@@ -1,0 +1,13 @@
+#title-card, #main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: blanchedalmond;
+    margin: 50px;
+}
+
+h1 {
+    font-family: sans-serif;
+    color: grey;
+}
+
