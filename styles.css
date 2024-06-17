@@ -1,4 +1,4 @@
-#title-card, #main {
+#title-card, #main, #standing {
     display: flex;
     justify-content: center;
     padding: 20px;

@@ -8,10 +8,11 @@ const rockBtn = document.createElement("button");
 const paperBtn = document.createElement("button");
 const scissorBtn = document.createElement("button");
 const mainCard = document.querySelector("#main");
-const standingCard = document.createElement('div');
+const standingCard = document.querySelector('#standing');
 rockBtn.innerText = "Rock";
 paperBtn.innerText = "Paper";
 scissorBtn.innerText = "Scissors";
+standingCard.innerText = `Player: ${playerPoints} Computer: ${computerPoints}`
 mainCard.appendChild(rockBtn);
 mainCard.appendChild(paperBtn);
 mainCard.appendChild(scissorBtn);
@@ -46,6 +47,15 @@ function playRound(playerSelection, computerSelection){
         gameResult = `You lose! ${computerSelection} beats ${playerSelection}`;
         computerPoints++;
     }
+    if(!(playerPoints > 5 || computerPoints > 5)){
+        standingCard.innerText = `Player: ${playerPoints} Computer: ${computerPoints}`
+    }
+    if(playerPoints == 5){
+        standingCard.textContent = `You are the winner with a final score of ${playerPoints} to ${computerPoints} Congratulations!!`;
+    }
+    else if(computerPoints == 5){
+        standingCard.textContent = `You lose with a final score of ${playerPoints} to ${computerPoints} Unlucky!!`;
+    }
 
 }
 
@@ -53,7 +63,7 @@ function game (){
 
         console.log(gameResult);
         console.log(`Standing: Player ${playerPoints} - Computer ${computerPoints}`);
-    }
+    
     if(playerPoints > computerPoints){
         console.log(`You are the winner with a final score of ${playerPoints} to ${computerPoints} Congratulations!!`);
     }
@@ -63,3 +73,5 @@ function game (){
     else {
         console.log("It's a draw! Well played everyone!");
     }
+}
+
