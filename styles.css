@@ -3,7 +3,30 @@
     justify-content: center;
     padding: 20px;
     background-color: blanchedalmond;
-    margin: 50px;
+}
+
+
+.container {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: auto ;
+    height: 100vh;
+    background-color: blanchedalmond;
+    gap: 50px;
+}
+#player-score, #computer-score {
+    font-size: 70px;
+}
+.score-card{
+    display: flex;
+    gap: 50px;
+}
+button {
+    margin: 0 30px;
+    padding: 15px 32px;
+    border-radius: 10px;
+    background-color: salmon;
 }
 
 h1 {

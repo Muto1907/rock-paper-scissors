@@ -9,10 +9,13 @@ const paperBtn = document.createElement("button");
 const scissorBtn = document.createElement("button");
 const mainCard = document.querySelector("#main");
 const standingCard = document.querySelector('#standing');
+const playerScore = document.querySelector('#player-score');
+const computerScore = document.querySelector('#computer-score');
+
+
 rockBtn.innerText = "Rock";
 paperBtn.innerText = "Paper";
 scissorBtn.innerText = "Scissors";
-standingCard.innerText = `Player: ${playerPoints} Computer: ${computerPoints}`
 mainCard.appendChild(rockBtn);
 mainCard.appendChild(paperBtn);
 mainCard.appendChild(scissorBtn);
@@ -48,7 +51,8 @@ function playRound(playerSelection, computerSelection){
         computerPoints++;
     }
     if(!(playerPoints > 5 || computerPoints > 5)){
-        standingCard.innerText = `Player: ${playerPoints} Computer: ${computerPoints}`
+        playerScore.innerText = playerPoints;
+        computerScore.innerText = computerPoints;
     }
     if(playerPoints == 5){
         standingCard.textContent = `You are the winner with a final score of ${playerPoints} to ${computerPoints} Congratulations!!`;
