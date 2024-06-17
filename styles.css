@@ -17,6 +17,11 @@
 }
 #player-score, #computer-score {
     font-size: 70px;
+    border: 5px solid black;
+    background-color: rgb(195, 68, 68);
+    max-width: 80px;
+    min-width: 70px;
+    text-align: center;
 }
 .score-card{
     display: flex;
@@ -26,9 +31,18 @@ button {
     margin: 0 30px;
     padding: 15px 32px;
     border-radius: 10px;
-    background-color: salmon;
+    background-color: rgb(195, 68, 68);
 }
-
+#computer-container, #player-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+span {
+    font-size: 32px;
+    
+}
 h1 {
     font-family: sans-serif;
     color: grey;
