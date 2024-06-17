@@ -1,13 +1,27 @@
+let playerSelection
+,   computerSelection
+,   playerPoints = 0
+,   computerPoints = 0;
+
+
 const rockBtn = document.createElement("button");
 const paperBtn = document.createElement("button");
 const scissorBtn = document.createElement("button");
 const mainCard = document.querySelector("#main");
-rockBtn.innerText = "Rock"
-paperBtn.innerText = "Paper"
-scissorBtn.innerText = "Scissors"
+const standingCard = document.createElement('div');
+rockBtn.innerText = "Rock";
+paperBtn.innerText = "Paper";
+scissorBtn.innerText = "Scissors";
 mainCard.appendChild(rockBtn);
 mainCard.appendChild(paperBtn);
 mainCard.appendChild(scissorBtn);
+
+rockBtn.addEventListener("click", () => playRound(rockBtn.textContent, getComputerChoice()));
+paperBtn.addEventListener("click", () => playRound(paperBtn.textContent, getComputerChoice()));
+scissorBtn.addEventListener("click", () => playRound(scissorBtn.textContent, getComputerChoice()));
+
+
+
 
 function getComputerChoice(){
     let choice;
@@ -18,39 +32,25 @@ function getComputerChoice(){
 }
 
 function playRound(playerSelection, computerSelection){
-    let gameResult;
-    formatPlayerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-    console.log(`You picked: ${formatPlayerSelection} | The computer picked ${computerSelection}`)
-    if(formatPlayerSelection === computerSelection){
-        gameResult = `It's a draw! You both picked ${formatPlayerSelection}`;
+    console.log(`You picked: ${playerSelection} | The computer picked ${computerSelection}`)
+    if(playerSelection === computerSelection){
+        gameResult = `It's a draw! You both picked ${playerSelection}`;
     }
-    else if ((formatPlayerSelection === 'Paper' && computerSelection === 'Rock')
-    || (formatPlayerSelection === 'Rock' && computerSelection === "Scissors")
-    || (formatPlayerSelection === 'Scissors' && computerSelection === 'Paper')){
-        gameResult = `You win! ${formatPlayerSelection} beats ${computerSelection}`;
+    else if ((playerSelection === 'Paper' && computerSelection === 'Rock')
+    || (playerSelection === 'Rock' && computerSelection === "Scissors")
+    || (playerSelection === 'Scissors' && computerSelection === 'Paper')){
+        gameResult = `You win! ${playerSelection} beats ${computerSelection}`;
+        playerPoints++;
     }
     else {
-        gameResult = `You lose! ${computerSelection} beats ${formatPlayerSelection}`;
+        gameResult = `You lose! ${computerSelection} beats ${playerSelection}`;
+        computerPoints++;
     }
-    return gameResult;
+
 }
 
 function game (){
-    let playerSelection
-    ,   computerSelection
-    ,   playerPoints = 0
-    ,   computerPoints = 0
-    ,   gameResult;
 
-    for(let i = 0; i < 5; i++){
-        playerSelection = prompt("Time to pick! Rock, Paper or Scissors?");
-        if(playerSelection.toLowerCase() !== "rock" && playerSelection.toLocaleLowerCase() !== "paper" && playerSelection.toLocaleLowerCase() !== "scissors"){
-            return "Error: Invalid option picked. You are disqualified!"
-        }
-        computerSelection = getComputerChoice();
-        gameResult = playRound(playerSelection, computerSelection);
-        if(gameResult.includes("win")) playerPoints++;
-        else if(gameResult.includes("lose")) computerPoints ++;
         console.log(gameResult);
         console.log(`Standing: Player ${playerPoints} - Computer ${computerPoints}`);
     }
@@ -63,4 +63,3 @@ function game (){
     else {
         console.log("It's a draw! Well played everyone!");
     }
-}
