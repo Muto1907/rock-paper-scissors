@@ -13,7 +13,8 @@ const standingCard = document.querySelector('#standing');
 const playerScore = document.querySelector('#player-score');
 const computerScore = document.querySelector('#computer-score');
 const eventScore = document.querySelector('#event');
-
+const playerChoice = document.querySelector('#playerChoice');
+const computerChoice = document.querySelector('#computerChoice');
 
 rockBtn.innerText = "Rock";
 paperBtn.innerText = "Paper";
@@ -49,7 +50,8 @@ function getComputerChoice(){
 function playRound(playerSelection, computerSelection){
     if (window.getComputedStyle(eventScore).visibility === "hidden") eventScore.style.visibility = "visible";
     if(playerPoints === 5 || computerPoints === 5) return;
-    console.log(`You picked: ${playerSelection} | The computer picked ${computerSelection}`)
+    playerChoice.textContent = playerSelection;
+    computerChoice.textContent = computerSelection;
     if(playerSelection === computerSelection){
         gameResult = `It's a draw! You both picked ${playerSelection}`;
     }
