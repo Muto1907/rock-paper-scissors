@@ -11,7 +11,7 @@ const mainCard = document.querySelector("#main");
 const standingCard = document.querySelector('#standing');
 const playerScore = document.querySelector('#player-score');
 const computerScore = document.querySelector('#computer-score');
-const eventScore = document.querySelector('#event');
+const eventScore = document.querySelector('.event-card');
 
 
 rockBtn.innerText = "Rock";
@@ -37,6 +37,7 @@ function getComputerChoice(){
 }
 
 function playRound(playerSelection, computerSelection){
+    if(playerPoints === 5 || computerPoints === 5) return;
     console.log(`You picked: ${playerSelection} | The computer picked ${computerSelection}`)
     if(playerSelection === computerSelection){
         gameResult = `It's a draw! You both picked ${playerSelection}`;
@@ -51,6 +52,7 @@ function playRound(playerSelection, computerSelection){
         gameResult = `You lose! ${computerSelection} beats ${playerSelection}`;
         computerPoints++;
     }
+    if(eventScore.id !== "event") eventScore.id = "event";
     eventScore.textContent = gameResult;
     if(!(playerPoints > 5 || computerPoints > 5)){
         playerScore.innerText = playerPoints;
@@ -64,21 +66,5 @@ function playRound(playerSelection, computerSelection){
     }
 
 
-}
-
-function game (){
-
-        console.log(gameResult);
-        console.log(`Standing: Player ${playerPoints} - Computer ${computerPoints}`);
-    
-    if(playerPoints > computerPoints){
-        console.log(`You are the winner with a final score of ${playerPoints} to ${computerPoints} Congratulations!!`);
-    }
-    else if(playerPoints < computerPoints){
-        console.log(`You lose with a final score of ${playerPoints} to ${computerPoints} Unlucky!!`);
-    }
-    else {
-        console.log("It's a draw! Well played everyone!");
-    }
 }
 
