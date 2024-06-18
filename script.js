@@ -7,6 +7,7 @@ let playerSelection
 const rockBtn = document.createElement("button");
 const paperBtn = document.createElement("button");
 const scissorBtn = document.createElement("button");
+const newGameBtn = document.createElement("button");
 const mainCard = document.querySelector("#main");
 const standingCard = document.querySelector('#standing');
 const playerScore = document.querySelector('#player-score');
@@ -17,6 +18,7 @@ const eventScore = document.querySelector('.event-card');
 rockBtn.innerText = "Rock";
 paperBtn.innerText = "Paper";
 scissorBtn.innerText = "Scissors";
+newGameBtn.innerText = "New Game";
 mainCard.appendChild(rockBtn);
 mainCard.appendChild(paperBtn);
 mainCard.appendChild(scissorBtn);
@@ -24,7 +26,15 @@ mainCard.appendChild(scissorBtn);
 rockBtn.addEventListener("click", () => playRound(rockBtn.textContent, getComputerChoice()));
 paperBtn.addEventListener("click", () => playRound(paperBtn.textContent, getComputerChoice()));
 scissorBtn.addEventListener("click", () => playRound(scissorBtn.textContent, getComputerChoice()));
-
+newGameBtn.addEventListener("click", () => {
+    playerPoints = 0;
+    computerPoints = 0;
+    playerScore.textContent = 0;
+    computerScore.textContent = 0;
+    eventScore.id = "";
+    eventScore.textContent = "";
+    mainCard.removeChild(newGameBtn);
+})
 
 
 
@@ -60,9 +70,11 @@ function playRound(playerSelection, computerSelection){
     }
     if(playerPoints == 5){
         eventScore.textContent = `You are the winner with a final score of ${playerPoints} to ${computerPoints} Congratulations!!`;
+        mainCard.appendChild(newGameBtn);
     }
     else if(computerPoints == 5){
         eventScore.textContent = `You lose with a final score of ${playerPoints} to ${computerPoints} Unlucky!!`;
+            mainCard.appendChild(newGameBtn);
     }
 
 
