@@ -11,6 +11,7 @@ const mainCard = document.querySelector("#main");
 const standingCard = document.querySelector('#standing');
 const playerScore = document.querySelector('#player-score');
 const computerScore = document.querySelector('#computer-score');
+const eventScore = document.querySelector('#event');
 
 
 rockBtn.innerText = "Rock";
@@ -50,16 +51,18 @@ function playRound(playerSelection, computerSelection){
         gameResult = `You lose! ${computerSelection} beats ${playerSelection}`;
         computerPoints++;
     }
+    eventScore.textContent = gameResult;
     if(!(playerPoints > 5 || computerPoints > 5)){
         playerScore.innerText = playerPoints;
         computerScore.innerText = computerPoints;
     }
     if(playerPoints == 5){
-        standingCard.textContent = `You are the winner with a final score of ${playerPoints} to ${computerPoints} Congratulations!!`;
+        eventScore.textContent = `You are the winner with a final score of ${playerPoints} to ${computerPoints} Congratulations!!`;
     }
     else if(computerPoints == 5){
-        standingCard.textContent = `You lose with a final score of ${playerPoints} to ${computerPoints} Unlucky!!`;
+        eventScore.textContent = `You lose with a final score of ${playerPoints} to ${computerPoints} Unlucky!!`;
     }
+
 
 }
 

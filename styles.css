@@ -4,8 +4,14 @@
     padding: 20px;
     background-color: blanchedalmond;
 }
-
-
+#event {
+    border: 5px solid black;
+    font-size: 32px;
+    padding: 25px;
+}
+#title-card{
+    font-size: 32px;
+}
 .container {
     background-color: grey;
     display: flex;
@@ -14,6 +20,7 @@
     height: 100vh;
     background-color: blanchedalmond;
     gap: 50px;
+    align-items: center;
 }
 #player-score, #computer-score {
     font-size: 70px;
@@ -32,6 +39,7 @@ button {
     padding: 15px 32px;
     border-radius: 10px;
     background-color: rgb(195, 68, 68);
+    font-size: 24px;
 }
 #computer-container, #player-container{
     display: flex;
