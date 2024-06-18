@@ -8,6 +8,7 @@
     border: 5px solid black;
     font-size: 32px;
     padding: 25px;
+    visibility: hidden;
 }
 #title-card{
     font-size: 32px;

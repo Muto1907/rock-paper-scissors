@@ -12,7 +12,7 @@ const mainCard = document.querySelector("#main");
 const standingCard = document.querySelector('#standing');
 const playerScore = document.querySelector('#player-score');
 const computerScore = document.querySelector('#computer-score');
-const eventScore = document.querySelector('.event-card');
+const eventScore = document.querySelector('#event');
 
 
 rockBtn.innerText = "Rock";
@@ -31,7 +31,7 @@ newGameBtn.addEventListener("click", () => {
     computerPoints = 0;
     playerScore.textContent = 0;
     computerScore.textContent = 0;
-    eventScore.id = "";
+    eventScore.style.visibility = "hidden";
     eventScore.textContent = "";
     mainCard.removeChild(newGameBtn);
 })
@@ -47,6 +47,7 @@ function getComputerChoice(){
 }
 
 function playRound(playerSelection, computerSelection){
+    if (window.getComputedStyle(eventScore).visibility === "hidden") eventScore.style.visibility = "visible";
     if(playerPoints === 5 || computerPoints === 5) return;
     console.log(`You picked: ${playerSelection} | The computer picked ${computerSelection}`)
     if(playerSelection === computerSelection){
@@ -62,7 +63,6 @@ function playRound(playerSelection, computerSelection){
         gameResult = `You lose! ${computerSelection} beats ${playerSelection}`;
         computerPoints++;
     }
-    if(eventScore.id !== "event") eventScore.id = "event";
     eventScore.textContent = gameResult;
     if(!(playerPoints > 5 || computerPoints > 5)){
         playerScore.innerText = playerPoints;
